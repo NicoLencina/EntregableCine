@@ -21,9 +21,9 @@ function butacasLibres(butacas: boolean[]) {
   let ocupadas: number = 0;
   for (let index = 0; index < butacas.length; index++) {
     if (butacas[index] === true) {
-      libres += 1;
-    } else {
       ocupadas += 1;
+    } else {
+      libres += 1;
     }
   }
   console.log(
