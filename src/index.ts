@@ -1,9 +1,11 @@
 //declaro las variables donde guardo los datos y la dimension del array
 let cantidadButacas: number = 0;
+let cantidadButacasLibres: number = 0;
+let cantidadButacasOcupadas: number = 0;
 let butacas: boolean[] = new Array(cantidadButacas);
 
 //creo una funcion que crea 1 y 0 y guardo los valores de forma booleana en el array
-function creoFV(butacas: boolean[]) {
+function cargarButacasAleatorias() {
   let boolean: number;
   for (let index = 0; index < cantidadButacas; index++) {
     boolean = Math.floor(Math.random() * 2);
@@ -16,27 +18,25 @@ function creoFV(butacas: boolean[]) {
   }
 }
 //leo las butacas libres del array y las guardo en variables locales, las cuyales retorno a al finaizar el for
-function butacasLibres(butacas: boolean[]) {
-  let libres: number = 0;
-  let ocupadas: number = 0;
+function contarButacas() {
   for (let index = 0; index < butacas.length; index++) {
     if (butacas[index] === true) {
-      ocupadas += 1;
+      cantidadButacasOcupadas += 1;
     } else {
-      libres += 1;
+      cantidadButacasLibres += 1;
     }
   }
-  console.log(
-    "Las butacas libres son: ",
-    libres,
-    " y las Ocupadas: ",
-    ocupadas,
-    " la cantidad de butacas del cine son: ",
-    butacas.length
-  );
 }
 //llamo las funciones
 cantidadButacas = Number(prompt("Ingrese la cantidad de butacas"));
-creoFV(butacas);
-butacasLibres(butacas);
+cargarButacasAleatorias();
+contarButacas();
+console.log(
+  "Las butacas libres son: ",
+  cantidadButacasLibres,
+  " y las Ocupadas: ",
+  cantidadButacasOcupadas,
+  " la cantidad de butacas del cine son: ",
+  butacas.length
+);
 console.log(butacas);
